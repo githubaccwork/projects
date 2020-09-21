@@ -4,7 +4,7 @@ import s from './Profile.module.css';
 
 const Profile = () => {
     return (
-        <div className={s.content}>
+        <div>
             <div>
                 <img className={s.wallpaper} src="https://www.fotor.com/loopBannerImg/indexBannerImg/banner-01.jpg"/>
                 {/* <img src="./wallpaper.png"/> */}

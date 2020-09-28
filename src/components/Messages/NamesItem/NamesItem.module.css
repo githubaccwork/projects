@@ -1,0 +1,12 @@
+.namesItem {
+    padding: 10px;
+}
+
+.namesItem a {
+    text-decoration: none;
+    color: white;
+}
+
+.namesItem .active {
+    color: gold;
+}

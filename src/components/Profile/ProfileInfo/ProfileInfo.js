@@ -5,10 +5,10 @@ const ProfileInfo = () => {
     return (
         <div>
             <div>
-                <img className={s.wallpaper} src="https://www.fotor.com/loopBannerImg/indexBannerImg/banner-01.jpg"/>
+                <img className={s.wallpaper} src="https://www.fotor.com/loopBannerImg/indexBannerImg/banner-01.jpg" alt='wallpaper'/>
             </div>
             <div className={s.discriptionBlock}>
-                <img src="./profile_photo.jpg"/>
+                <img src="./profile_photo.jpg" alt=''/>
                 <p>Description</p>
             </div>
         </div>

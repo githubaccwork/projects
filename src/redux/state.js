@@ -1,3 +1,7 @@
+import profileReduser from './profile-reducer';
+import messagesReduser from './messages-reduser';
+import sidebarReduser from './sidebare-reducer';
+
 const store = {
     _state: {
         profilePage: {
@@ -30,35 +34,31 @@ const store = {
                 {id: 5, message: 'Let start dialog ?'},
                 {id: 6, message: 'Ha-ha...'}
             ],
+            newMessageBody: '',
         },
+
+        sidebarPage: {},
+    },
+    _callSubscriber() {
+        console.log('State has changed');
     },
 
     getState() {
         return this._state;
     },
-
-    _callSubscriber() {
-        console.log('State has changed');
-    },
-
-    addPost() {
-        let newPost = {
-            id: 5,
-            post: this._state.profilePage.newPostText,
-            likesCounter: 0
-        };
-        this._state.profilePage.postsData.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    updateNewPostText(newText) {
-    
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
     subscribe(observer) {
         this._callSubscriber = observer;
-    }
-}
+    },
+
+    dispatch(action) {
+
+        this._state.profilePage = profileReduser(this._state.profilePage, action);
+        this._state.messagesPage = messagesReduser(this._state.messagesPage, action);
+        this._state.sidebarPage = sidebarReduser(this._state.sidebarPage, action);
+
+        this._callSubscriber(this._state);
+    },
+    
+};
 
 export default store;
